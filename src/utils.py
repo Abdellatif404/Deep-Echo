@@ -33,3 +33,7 @@ class AudioPreprocessor:
 		spec = self.load_audio(file_path)
 		return self.normalize_db(spec)
 	
+	def calculate_reconstruction_error(self, original, reconstructed):
+		"""Calculates MSE error between original and reconstructed spectrograms."""
+		mse = np.mean(np.power(original - reconstructed, 2))
+		return mse
